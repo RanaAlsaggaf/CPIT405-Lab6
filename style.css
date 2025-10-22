@@ -1,0 +1,219 @@
+:root {
+    --bg: #fcfcfe;
+    --panel: #f1f2f7;
+    --ink: #0f1223;
+    --muted: #70778e;
+    --accent: #4f46e5;
+    --ok: #10b981;
+    --bad: #ef4444;
+    --btn: #e7e9f3;
+    --shadow: 0 8px 24px rgba(15, 18, 35, .08);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--ink);
+    background: radial-gradient(1200px 600px at 50% -200px, #eef1ff 0, #ffffff 60%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.wrap {
+    width: min(900px, 92vw);
+    margin: 48px auto 64px;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: .2em 0 .5em;
+    letter-spacing: .5px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.votes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 18px auto 26px;
+    max-width: 640px;
+}
+
+.vote-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 42px;
+    padding: 20px 18px;
+    border-radius: 16px;
+    border: 2px solid #e7e9f3;
+    background: var(--panel);
+    cursor: pointer;
+    transition: transform .05s ease-in, box-shadow .2s ease;
+    user-select: none;
+}
+
+.vote-btn:active {
+    transform: scale(.98);
+}
+
+.vote-btn[disabled] {
+    cursor: not-allowed;
+    opacity: .65;
+    filter: saturate(.7);
+}
+
+.vote-btn .count {
+    font-weight: 800;
+    font-size: 48px;
+    min-width: 92px;
+    text-align: right;
+}
+
+.vote-like {
+    border-color: #d8efe6;
+}
+
+.vote-dislike {
+    border-color: #f7d9da;
+}
+
+.vote-like .emoji {
+    filter: drop-shadow(0 6px 8px rgba(16, 185, 129, .18))
+}
+
+.vote-dislike .emoji {
+    filter: drop-shadow(0 6px 8px rgba(239, 68, 68, .18))
+}
+
+.hint {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.comms {
+    margin-top: 18px;
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #d8dbeb;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, .03);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+button.action {
+    background: #ffffff;
+    color: #111827;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button.action:hover {
+    background: #f3f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+button.action:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ok {
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.comments-list {
+    margin-top: 18px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.comment {
+    background: #fff;
+    border: 1px solid #e7e9f3;
+    padding: 12px 14px;
+    border-radius: 12px;
+}
+
+.toast {
+    position: fixed;
+    inset: auto 16px 16px auto;
+    background: #111827;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .25s ease, transform .25s ease;
+    pointer-events: none;
+    z-index: 99;
+    font-weight: 700;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width:610px) {
+    .votes {
+        grid-template-columns: 1fr;
+    }
+
+    .vote-btn .count {
+        min-width: auto;
+    }
+}

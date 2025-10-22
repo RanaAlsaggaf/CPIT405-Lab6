@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Rana Alsaggaf" />
+    <title>Lab 6</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Lab 6</h1>
+        <h2>Like or dislike</h2>
+
+        <div class="votes">
+            <button id="likeBtn" class="vote-btn vote-like" aria-label="Like">
+                <span class="emoji" aria-hidden="true">👍</span>
+                <span class="count" id="likeCount">100</span>
+            </button>
+
+            <button id="dislikeBtn" class="vote-btn vote-dislike" aria-label="Dislike">
+                <span class="emoji" aria-hidden="true">👎</span>
+                <span class="count" id="dislikeCount">20</span>
+            </button>
+        </div>
+
+        <p id="lockHint" class="hint"></p>
+
+        <h2>Comments</h2>
+
+        <section class="comms" aria-labelledby="comments">
+            <div class="row">
+                <textarea id="commentInput" placeholder="Write a comment..." maxlength="300"></textarea>
+            </div>
+
+            <div class="actions">
+                <button id="submitComment" class="action primary">Submit</button>
+                <button id="clearComment" class="action">Clear</button>
+                <button id="resetAll" class="action danger">Reset</button>
+            </div>
+
+            <ul id="commentsList" class="comments-list"></ul>
+        </section>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
